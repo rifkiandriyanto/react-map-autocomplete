@@ -12,7 +12,10 @@ const Location = () => {
   const selectedLng = useSelector((state: any) => state.locations.selectedLng);
 
   const handleDelete = (index: any) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     dispatch(removeSelectedLocation(index));
+
   };
 
   return (

@@ -24,7 +24,7 @@ const AutocompleteForm = () => {
       lng: autocomplete.getPlace().geometry.location.lng(),
     };
     dispatch(addSelectedLocation(location));
-    dispatch(setSelectedLatLng(location));
+    dispatch(setSelectedLatLng(location)); 
     formRef.current.value = "";
   };
 

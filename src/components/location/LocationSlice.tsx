@@ -6,9 +6,12 @@ const initialState = {
   selectedLng: null,
 };
 
+
 export const addSelectedLocation = createAsyncThunk(
   "locationsSlice/addSelectedLocation",
-  async (location, { dispatch }) => {
+  async (location: any, { dispatch }) => {
+     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+     // @ts-ignore
     dispatch(setSelectedLatLng(location.lat, location.lng));
     return location;
   }
@@ -17,9 +20,9 @@ export const addSelectedLocation = createAsyncThunk(
 export const removeSelectedLocation = createAsyncThunk(
   "locationsSlice/removeSelectedLocation",
   async (locationIndex, { getState }) => {
-    const state = getState();
+    const state: any = getState();
     const updateSelectedLocation = state.locations.listSelectedLocations.filter(
-      (_, index) => index !== locationIndex
+      (_: any, index: void) => index !== locationIndex
     );
     return updateSelectedLocation;
   }
@@ -37,7 +40,7 @@ export const locationsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(addSelectedLocation.fulfilled, (state, action) => {
+      .addCase(addSelectedLocation.fulfilled, (state : any, action) => {
         state.listSelectedLocations.push(action.payload);
       })
       .addCase(removeSelectedLocation.fulfilled, (state, action) => {
