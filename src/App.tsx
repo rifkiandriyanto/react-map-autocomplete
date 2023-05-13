@@ -1,5 +1,9 @@
-import { Container, Grid } from "@mui/material";
+import Map from "./components/maps";
+import AutocompleteForm from "./components/autocompleteform";
+import Location from "./components/location";
+import "./App.css";
 import { LoadScript, LoadScriptProps } from "@react-google-maps/api";
+import { Container, Grid } from "@mui/material";
 
 function App() {
   const librariez: LoadScriptProps["libraries"] = ["places"];
@@ -14,7 +18,13 @@ function App() {
           >
             <Container fixed sx={{ padding: "10px" }}>
               <Grid container spacing={2}>
-                Location Selected
+                <Grid item xs={6}>
+                  <AutocompleteForm />
+                  <Location />
+                </Grid>
+                <Grid item xs={6}>
+                  <Map />
+                </Grid>
               </Grid>
             </Container>
           </LoadScript>
